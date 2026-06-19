@@ -1,0 +1,25 @@
+"""
+A.4 — Surprisal extraction (shared across all models).
+
+Surprisal(w_t) = -log2 P(w_t | w_1, ..., w_{t-1})
+"""
+import math
+import torch
+
+
+def compute_surprisal(text, tokenizer, model, device):
+    """
+    Returns:
+        surp: dict {token_index: surprisal_in_bits}
+        attentions: tuple of per-layer attention tensors from the model
+    """
+    enc = tokenizer(text, return_tensors="pt").to(device)
+    with torch.no_grad():
+        out = model(**enc, output_attentions=True)
+
+    log_probs = torch.log_softmax(out.logits[0].float(), dim=-1)
+    surp = {
+        t: -log_probs[t - 1, enc["input_ids"][0, t]].item() / math.log(2)
+        for t in range(1, enc["input_ids"].shape[1])
+    }
+    return surp, out.attentions
