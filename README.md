@@ -2,9 +2,7 @@
 
 ### Does High-Surprisal Input Collapse Dependency Grammar? A Cross-Model, Cross-Language Study
 
-**Authors:** Himank Khandelwal · Virender · Sanchit Hamane · Kshitij Pramod Ramtekkar
-
-📄 **[Read the full paper](./paper/CGS410_final_project.pdf)**
+**Authors:** Kshitij Pramod Ramtekkar - Himank Khandelwal - Virender - Sanchit Hamane 
 
 ---
 
@@ -126,16 +124,6 @@ python src/recovery_analysis.py
 - GPT-2 and Llama differ in tokenizer and pre-training corpus, partially confounding the model-size comparison.
 - Hindi Llama analysis uses the multilingual base model without Hindi-specific fine-tuning.
 
-## Citation
 
-```bibtex
-@misc{khandelwal2026syntacticheads,
-  title={A Stress Test of LLM Syntactic Heads: Does High-Surprisal Input Collapse Dependency Grammar?},
-  author={Khandelwal, Himank and Virender and Hamane, Sanchit and Ramtekkar, Kshitij Pramod},
-  year={2026}
-}
-```
 
-## License
 
-MIT — see [LICENSE](./LICENSE).
